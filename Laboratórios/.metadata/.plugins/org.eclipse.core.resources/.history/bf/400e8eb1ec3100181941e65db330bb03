@@ -1,0 +1,63 @@
+/*
+ * 
+ * Questões:
+ * 
+ * 1) R: 
+ * 2) R:
+ * 3) R: 
+ * 4) R:
+ * 
+ */
+
+public class Main {
+
+	public static void main(String[] args) {
+		Caronante caronante00 = new Caronante(0, "Rock", "453-23", "12345", "VW", "Golf");
+		Caroneiro caroneiro00 = new Caroneiro("1111111");
+
+		Perfil perfil00 = new Perfil('m', "19/09/1996", "Carapicuíba", "SP", "11945431236", false, 5, caroneiro00,
+				caronante00);
+		Usuario usuario00 = new Usuario("Nicolas", "nicolasfranca9@gmail.com", "12345", true, perfil00);
+		
+		caronante00.setPerfil(perfil00);
+		caroneiro00.setPerfil(perfil00);
+		
+		Caronante caronante01 = new Caronante(0, "Samba", "453-22", "123432", "Ford", "K");
+		Caroneiro caroneiro01 = new Caroneiro("1111122");
+
+		Perfil perfil01 = new Perfil('f', "19/09/1997", "Carapicuíba", "SP", "11945431237", false, 5, caroneiro01,
+				caronante01);
+		Usuario usuario01 = new Usuario("Gabriel", "gabriel@gmail.com", "123532", true, perfil01);
+		
+		caronante01.setPerfil(perfil01);
+		caroneiro01.setPerfil(perfil01);
+		
+		Grupo grupo = new Grupo("Só os que tem família unida", "Aqui tem pessoas que tem família unida.");
+		
+		grupo.adicionarMembro(usuario00);
+		grupo.adicionarMembro(usuario01);
+		usuario00.adicionarGrupo(grupo);
+		usuario01.adicionarGrupo(grupo);
+
+		GrupoPrivado grupoPrivado = new GrupoPrivado("grupoPrivado", "Esse é um grupo privado.");
+		GrupoPublico grupoPublico = new GrupoPublico("grupoPublico", "Esse é um grupo publico.");
+		
+		usuario00.adicionarGrupo(grupoPublico);
+		usuario01.adicionarGrupo(grupoPublico);
+		grupoPublico.adicionarMembro(usuario00);
+		grupoPublico.adicionarMembro(usuario01);
+
+		usuario00.adicionarGrupo(grupoPrivado);
+		usuario01.adicionarGrupo(grupoPrivado);
+		grupoPrivado.adicionarMembro(usuario00);
+		grupoPrivado.adicionarMembro(usuario01);
+		
+		System.out.println(caronante00);
+		System.out.println(caronante01);
+		System.out.println(perfil00);
+		System.out.println(perfil01);
+		System.out.println(usuario00);
+		System.out.println(usuario01);
+	}
+
+}

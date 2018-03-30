@@ -1,0 +1,34 @@
+/*
+ * 
+ * Questões:
+ * 
+ * 1) R: 
+ * 2) R:
+ * 3) R: 
+ * 4) R:
+ * 
+ */
+
+public class Main {
+
+	public static void main(String[] args) {
+		//- PARA TODAS AS CLASSES *FAZER* O QUE 4.2 PEDE.
+		Caronante caronante = new Caronante(0, "Rock", "453-23", "12345", "VW", "Golf");
+		Caroneiro caroneiro = new Caroneiro("1111111");
+
+		Perfil perfil = new Perfil('m', "19/09/1996", "Carapicuíba", "SP", "11945431236", false, 5, caroneiro,
+				caronante);
+		Usuario usuario = new Usuario("Nicolas", "nicolasfranca9@gmail.com", "12345", true, perfil);
+		
+		caronante.setPerfil(perfil);
+		caroneiro.setPerfil(perfil);
+		
+		Grupo grupo = new Grupo("Só os que tem família unida", "Aqui tem pessoas que tem família unida.");
+		
+		usuario.adicionarGrupo(grupo);
+		
+		GrupoPrivado grupoPrivado = new GrupoPrivado(nome, descricao)
+
+	}
+
+}

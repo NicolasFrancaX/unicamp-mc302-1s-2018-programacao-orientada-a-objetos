@@ -1,0 +1,9 @@
+import java.util.ArrayList;
+
+public class GrupoPrivado extends Grupo {
+	// private ArrayList<CaronaPrivada> caronas;
+	
+	public void adicionarMembro(Usuario usuario) {
+		// caronas.add(usuario);
+	}
+}

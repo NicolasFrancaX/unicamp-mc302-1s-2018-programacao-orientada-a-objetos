@@ -1,0 +1,5 @@
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	The final field Caronante.carteiraMotorista cannot be assigned
+
+	at Caronante.setCarteiraMotorista(Caronante.java:17)
+	at Main.main(Main.java:48)

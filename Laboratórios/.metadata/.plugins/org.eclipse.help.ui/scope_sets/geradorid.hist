@@ -1,0 +1,4 @@
+#Tue Mar 27 13:29:18 BRT 2018
+__DEFAULT__=false
+org.eclipse.help.ui.localSearch.master=true
+expression=geradorid

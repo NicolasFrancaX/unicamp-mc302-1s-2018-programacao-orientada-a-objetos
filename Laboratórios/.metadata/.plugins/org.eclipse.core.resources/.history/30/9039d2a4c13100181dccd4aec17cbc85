@@ -1,0 +1,7 @@
+
+public class Grupo {
+	private int id;
+	private String nome;
+	private String descricao;
+	private ArrayList<Usuario>;
+}

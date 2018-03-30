@@ -1,0 +1,10 @@
+
+public class Carona {
+	private Caroneiro[] caroneiros;
+	private final Caronante caronante;
+	private double latitudeEncontro;
+	private double longitudeEncontro;
+	
+	
+
+}

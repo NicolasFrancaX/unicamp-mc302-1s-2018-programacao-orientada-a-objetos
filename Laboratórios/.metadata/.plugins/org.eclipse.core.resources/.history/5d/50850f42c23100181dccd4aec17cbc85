@@ -1,0 +1,12 @@
+import java.util.ArrayList;
+
+public class Grupo {
+	private int id;
+	private String nome;
+	private String descricao;
+	private ArrayList<Usuario> membros;
+	
+	public void adicionarMembro(Usuario usuario) {
+		membros.add(usuario);
+	}
+}

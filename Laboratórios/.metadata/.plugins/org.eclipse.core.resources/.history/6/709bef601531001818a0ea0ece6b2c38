@@ -1,0 +1,73 @@
+/*
+ * Só falta responder as questões...
+ * 
+ * Questões:
+ * 
+ * 1) R: Não. A IDE já mostra na linha do setter que não vai compilar.
+ * 		 Caso tentemos compilar teremos a saída abaixo:
+ * 			Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+ * 			The final field Caronante.carteiraMotorista cannot be assigned
+ * 
+ * 			at Caronante.setCarteiraMotorista(Caronante.java:17)
+ * 			at Main.main(Main.java:48)
+ * 
+ * 		 A modificação não foi possível pois é um atributo com a palavra reservada
+ * 		 final, ou seja, depois de atribuido um valor, não é possível alterar ele.
+ * 		 Esse valor vai funcionar como uma constante.
+ * 		 
+ * 2) R: Sim, foi possível. Esse final significa que não vou poder instanciar esse
+ * 		 valor de novo. Ou seja, só posso instanciar nesse espaço de memória uma
+ * 		 vez. Mas não diz nada sobre mudar os atributos desse objeto.
+ * 
+ * 		 
+ * 3) R:
+ */
+public class Main {
+
+	public static void main(String[] args) {
+		// Crie um objeto da classe Caronante
+		Caronante caronante = new Caronante("0000000");
+
+		// e quatro objetos da classe Caroneiro.
+		Caroneiro c0 = new Caroneiro("00000");
+		Caroneiro c1 = new Caroneiro("11111");
+		Caroneiro c2 = new Caroneiro("22222");
+		Caroneiro c3 = new Caroneiro("33333");
+		
+		/* Construa então um objeto Carona que tem o
+		 * caronante criado anteriormente como o atributo
+		 * caronante.
+		 */
+		
+		Carona carona = new Carona(caronante, 0.1234, 0.12345, 0.2353, 0.134532, "09:04 26/03/2018", 3);
+		
+		/* Imprima a saída do método, e verifique
+		 * se o retorno foi verdadeiro nas três primeiras
+		 * adições, e falsa na última.
+		 */
+
+		System.out.println(carona.adicionarCaroneiro(c0));
+		System.out.println(carona.adicionarCaroneiro(c1));
+		System.out.println(carona.adicionarCaroneiro(c2));
+		System.out.println(carona.adicionarCaroneiro(c3));
+		
+		/* Também imprima o objeto carona (que utilizará
+		 * o método toString()), e verifique se só 3 dos
+		 * caroneiros foram adicionados.
+		 */
+		
+		System.out.println(carona);
+		
+		// 1):
+		// caronante.setCarteiraMotorista("000000");
+		
+		// 2):
+		final Caronante c = new Caronante("0000000110");
+		c.setTempoHabilitacao(4);;
+		
+		// Mostrando que não posso instanciar novamente:
+		c = new Caronante("0202020202");
+		
+	}
+
+}
