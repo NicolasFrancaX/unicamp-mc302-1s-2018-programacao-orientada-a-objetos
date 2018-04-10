@@ -1,9 +1,0 @@
-import java.util.ArrayList;
-
-public class GrupoPublico extends Grupo {
-	// private ArrayList<CaronaPrivada> caronas;
-	
-	private void adicionarMembro(Usuario usuario) {
-		// caronas.add(usuario);
-	}
-}
