@@ -2,17 +2,51 @@ import java.util.ArrayList;
 
 public class Carona {
 	private ArrayList<Caroneiro> caroneiros;
-	private final Caronante caronante;
+	private Caronante caronante;
 	private double latitudeEncontro;
 	private double longitudeEncontro;
 	private double latitudeDestino;
 	private double longitudeDestino;
 	private String horaDiaEncontro;
 	private int ocupacaoMaxima;
+	private float valor;
 	private int assentosDisponiveis;
+	private ArrayList<MetodoPagamento> formaPagAceitas;
 
 	public Carona(Caronante caronante) {
 		this.caronante = caronante;
+		this.caroneiros = new ArrayList<Caroneiro>();
+		this.formaPagAceitas = new ArrayList<MetodoPagamento>();
+	}
+	
+	public Carona(Caronante caronante, double latitudeEncontro, double longitudeEncontro, double latitudeDestino,
+			double longitudeDestino, String horaDiaEncontro, int assentosDisponiveis, float valor) {
+		this.caronante = caronante;
+		this.latitudeEncontro = latitudeEncontro;
+		this.longitudeEncontro = longitudeEncontro;
+		this.latitudeDestino = latitudeDestino;
+		this.longitudeDestino = longitudeDestino;
+		this.horaDiaEncontro = horaDiaEncontro;
+		this.assentosDisponiveis = assentosDisponiveis;
+		this.ocupacaoMaxima = assentosDisponiveis;
+		this.caroneiros = new ArrayList<Caroneiro>(ocupacaoMaxima);
+		this.valor = valor;
+		this.formaPagAceitas = new ArrayList<MetodoPagamento>();
+	}
+
+	public Carona(Caronante caronante, double latitudeEncontro, double longitudeEncontro, double latitudeDestino, double longitudeDestino,
+			String horaDiaEncontro, int ocupacaoMaxima, int assentosDisponiveis, float valor) {
+		this.caronante = caronante;
+		this.latitudeEncontro = latitudeEncontro;
+		this.longitudeEncontro = longitudeEncontro;
+		this.latitudeDestino = latitudeDestino;
+		this.longitudeDestino = longitudeDestino;
+		this.horaDiaEncontro = horaDiaEncontro;
+		this.ocupacaoMaxima = ocupacaoMaxima;
+		this.assentosDisponiveis = assentosDisponiveis;
+		this.caroneiros = new ArrayList<Caroneiro>(ocupacaoMaxima);
+		this.formaPagAceitas = new ArrayList<MetodoPagamento>();
+		this.valor = valor;
 	}
 
 	public Carona(Caronante caronante, double latitudeEncontro, double longitudeEncontro, double latitudeDestino,
@@ -26,6 +60,7 @@ public class Carona {
 		this.assentosDisponiveis = assentosDisponiveis;
 		this.ocupacaoMaxima = assentosDisponiveis;
 		this.caroneiros = new ArrayList<Caroneiro>(ocupacaoMaxima);
+		this.formaPagAceitas = new ArrayList<MetodoPagamento>();
 	}
 
 	public Carona(Caronante caronante, double latitudeEncontro, double longitudeEncontro, double latitudeDestino, double longitudeDestino,
@@ -39,6 +74,7 @@ public class Carona {
 		this.ocupacaoMaxima = ocupacaoMaxima;
 		this.assentosDisponiveis = assentosDisponiveis;
 		this.caroneiros = new ArrayList<Caroneiro>(ocupacaoMaxima);
+		this.formaPagAceitas = new ArrayList<MetodoPagamento>();
 	}
 
 	public boolean adicionarCaroneiro(Caroneiro caroneiro) {
@@ -58,6 +94,32 @@ public class Carona {
 	
 	public boolean caronaVazia() {
 		return this.caroneiros.size() == 0;
+	}
+	
+	public boolean adicionarFormaPagamento(MetodoPagamento mp) {
+		if (mp == MetodoPagamento.GRATIS) {
+			formaPagAceitas.removeAll(formaPagAceitas);
+			valor = 0;
+			return formaPagAceitas.add(mp);
+		}
+		
+		if (mp != MetodoPagamento.GRATIS && formaPagAceitas.size() != 0 && formaPagAceitas.get(0) == MetodoPagamento.GRATIS) {
+			formaPagAceitas.remove(0);
+		}
+
+		return formaPagAceitas.add(mp);
+	}
+	
+	public boolean removerFormaPagamento(MetodoPagamento mp) {
+		return formaPagAceitas.remove(mp);
+	}
+	
+	public boolean checarExistenciaFormaPagamento(MetodoPagamento mp) {
+		return formaPagAceitas.contains(mp);
+	}
+	
+	public boolean caronaGratuita() {
+		return formaPagAceitas.get(0) == MetodoPagamento.GRATIS;
 	}
 
 	public ArrayList<Caroneiro> getCaroneiros() {
@@ -124,10 +186,32 @@ public class Carona {
 		return caronante;
 	}
 
+	public float getValor() {
+		return valor;
+	}
+
+	public void setValor(float valor) {
+		this.valor = valor;
+	}
+
+	public ArrayList<MetodoPagamento> getFormaPagAceitas() {
+		return formaPagAceitas;
+	}
+
+	public void setFormaPagAceitas(ArrayList<MetodoPagamento> formaPagAceitas) {
+		this.formaPagAceitas = formaPagAceitas;
+	}
+
+	public void setCaroneiros(ArrayList<Caroneiro> caroneiros) {
+		this.caroneiros = caroneiros;
+	}
+
 	@Override
 	public String toString() {
-		String out = "CaronaAL: \n";
-		out += "- caronante: " + caronante + "\n";
+		String out = "Carona: \n";
+		out += "- caronante: " + caronante;
+		out += "- valor: " + valor + "\n";
+		out += "- formas de pagamento" + formaPagAceitas + "\n";
 		out += "- ocupação máxima: " + ocupacaoMaxima + "\n";
 		out += "- assentos disponíveis: " + assentosDisponiveis + "\n";
 		out += "- caroneiros: " + caroneiros + "\n";

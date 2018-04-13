@@ -1,4 +1,3 @@
-
 public class Perfil {
 	private char sexo;
 	private final String dataNascimento;

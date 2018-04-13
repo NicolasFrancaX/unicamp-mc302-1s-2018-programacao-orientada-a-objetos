@@ -53,27 +53,35 @@ public class Caronante {
 	public int getTempoHabilitacao() {
 		return tempoHabilitacao;
 	}
+
 	public void setTempoHabilitacao(int tempoHabilitacao) {
 		this.tempoHabilitacao = tempoHabilitacao;
 	}
+
 	public String getGeneroMusicalFavorito() {
 		return generoMusicalFavorito;
 	}
+
 	public void setGeneroMusicalFavorito(String generoMusicalFavorito) {
 		this.generoMusicalFavorito = generoMusicalFavorito;
 	}
+
 	public String getPlacaVeiculo() {
 		return placaVeiculo;
 	}
+
 	public void setPlacaVeiculo(String placaVeiculo) {
 		this.placaVeiculo = placaVeiculo;
 	}
+
 	public String getCarteiraMotorista() {
 		return carteiraMotorista;
 	}
+
 	public String getMarcaVeiculo() {
 		return marcaVeiculo;
 	}
+
 	public void setMarcaVeiculo(String marcaVeiculo) {
 		this.marcaVeiculo = marcaVeiculo;
 	}

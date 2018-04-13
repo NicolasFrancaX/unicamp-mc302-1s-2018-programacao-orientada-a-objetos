@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class GrupoPrivado extends Grupo {
 	private ArrayList<CaronaPrivada> caronas;
-	
+
 	public GrupoPrivado(String nome, String descricao) {
 		super(nome, descricao);
 	}

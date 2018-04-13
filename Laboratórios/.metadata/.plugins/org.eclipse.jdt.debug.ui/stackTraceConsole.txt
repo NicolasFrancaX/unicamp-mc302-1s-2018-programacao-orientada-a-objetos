@@ -1,5 +1,12 @@
-Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
-	The final field Caronante.carteiraMotorista cannot be assigned
-
-	at Caronante.setCarteiraMotorista(Caronante.java:17)
-	at Main.main(Main.java:48)
+public Carona(Caronante caronante, double latitudeEncontro, double longitudeEncontro, double latitudeDestino,
+			double longitudeDestino, String horaDiaEncontro, int assentosDisponiveis) {
+		this.caronante = caronante;
+		this.latitudeEncontro = latitudeEncontro;
+		this.longitudeEncontro = longitudeEncontro;
+		this.latitudeDestino = latitudeDestino;
+		this.longitudeDestino = longitudeDestino;
+		this.horaDiaEncontro = horaDiaEncontro;
+		this.assentosDisponiveis = assentosDisponiveis;
+		this.ocupacaoMaxima = assentosDisponiveis;
+		this.caroneiros = new ArrayList<Caroneiro>(ocupacaoMaxima);
+	}

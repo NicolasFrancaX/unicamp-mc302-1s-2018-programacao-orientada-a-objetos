@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 // Questão 2) public final class GrupoPublico extends Grupo {
 public class GrupoPublico extends Grupo {
-	 private ArrayList<CaronaPublica> caronas;
+	private ArrayList<CaronaPublica> caronas;
 
 	/*
 	 * Questão 3)

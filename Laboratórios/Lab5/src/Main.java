@@ -2,71 +2,24 @@
  * 
  * Questões:
  * 
- * 1) R: O principal benefício da Herança é a reutilização de código, utilizando o
- * 		 encapsulamento como base.
- * 
- * 		 Mas um outro benefício muito útil é a possibilidade de fazer Polimorfismo.
- * 
- * 		 Um exemplo: 
- * 
- * 		 Se temos uma classe Animal, e classes que herdam de Animal como Pato, Gato e etc.
- * 
- * 		 Caso tenhamos: Animal pato, podemos fazer: pato = new Pato; 
- * 					    Animal gato, podemos fazer: gato = new Gato;
- * 
- * 		 Isso nos permite fazer um array de Animal que tenham objetos de tipos diferentes 
- * 		 (que sejam herdados de Animal).
+ * 1) R: Não é possível ter um enum que esteja com modificador de acesso que não seja public.
+ * A IDE (Eclipse) mostra o seguinte comentário: "Illegal modifier for the enum MetodoPagamento; only public is permitted"
  * 
  * 
- * 2) R: Temos o seguinte erro de compilação:
- * 
- *		 Error: A JNI error has occurred, please check your installation and try again
-		 Exception in thread "main" java.lang.VerifyError: Cannot inherit from final class
-			at java.lang.ClassLoader.defineClass1(Native Method)
-			at java.lang.ClassLoader.defineClass(ClassLoader.java:763)
-			at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
-			at java.net.URLClassLoader.defineClass(URLClassLoader.java:467)
-			at java.net.URLClassLoader.access$100(URLClassLoader.java:73)
-			at java.net.URLClassLoader$1.run(URLClassLoader.java:368)
-			at java.net.URLClassLoader$1.run(URLClassLoader.java:362)
-			at java.security.AccessController.doPrivileged(Native Method)
-			at java.net.URLClassLoader.findClass(URLClassLoader.java:361)
-			at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
-			at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:335)
-			at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
-			at java.lang.Class.getDeclaredMethods0(Native Method)
-			at java.lang.Class.privateGetDeclaredMethods(Class.java:2701)
-			at java.lang.Class.privateGetMethodRecursive(Class.java:3048)
-			at java.lang.Class.getMethod0(Class.java:3018)
-			at java.lang.Class.getMethod(Class.java:1784)
-			at sun.launcher.LauncherHelper.validateMainClass(LauncherHelper.java:544)
-			at sun.launcher.LauncherHelper.checkAndLoadMain(LauncherHelper.java:526) 
- * 		 
- * 		 Adicionando "final" na classe Grupo, essa classe não vai ter possibilidade
- * 		 de ter herdeiras. Ou seja, ela é a última classe da "família" (que tem como
- * 		 raíz a classe Object).
- * 
- * 		 Logo, como GrupoPublico e GrupoPrivado herdam dessa classe, não vai ser
- * 		 possível compilar esses códigos. 
- * 		
- * 		 Se definirmos GrupoPublico como final, não vai acontecer nada com o código
- * 		 que já temos. Mas se tentarmos herdar dela, teremos problemas.
- * 
- * 
- * 3) R: A classe GrupoPublico foi chamada para a, b e c.
- * 		
- * 		 Alterando parar ficar sem static, acontece o mesmo resultado. Ou seja, a classe GrupoPublico
- *  	 é a chamada.
- * 		 
- * Observação: Se não tivermos cuidado com os atributos do toString, teremos
- * Stackoverflow constantes. Principalmente no relacionamento Caroneiro 1<->1 Perfil;
- * Caronante 1<->1 Perfil; Usuario 1<->1 Perfil; Grupos n<->n Usuario.
+ * 2) R: Para fazer comparações mais precisas, ou mesmo para switch-case o enumerate funciona muito bem, mas String não.
  * 
  */
 
 public class Main {
 
 	public static void main(String[] args) {
+
+		/* 
+		 * Instanciando objetos das demais classes necessárias para a possibilidade da instanciação das classes relacionadas
+		 * a Carona.
+		 * 
+		 */
+		
 		Caronante caronante00 = new Caronante(0, "Rock", "453-23", "12345", "VW", "Golf");
 		Caroneiro caroneiro00 = new Caroneiro("1111111");
 
@@ -87,10 +40,21 @@ public class Main {
 		caronante01.setPerfil(perfil01);
 		caroneiro01.setPerfil(perfil01);
 		
+		Caronante caronante02 = new Caronante(0, "Eletrônica", "453-24", "12346", "Ford", "Focus");
+		Caroneiro caroneiro02 = new Caroneiro("1111112");
+
+		Perfil perfil02 = new Perfil('m', "19/09/1997", "Osasco", "SP", "11945431253", false, 5, caroneiro02,
+				caronante02);
+		Usuario usuario02 = new Usuario("Bruno", "bruno@gmail.com", "12346", true, perfil02);
+		
+		caronante02.setPerfil(perfil02);
+		caroneiro02.setPerfil(perfil02);
+
 		Grupo grupo = new Grupo("Só os que tem família unida", "Aqui tem pessoas que tem família unida.");
 		
 		grupo.adicionarMembro(usuario00);
 		grupo.adicionarMembro(usuario01);
+		grupo.adicionarMembro(usuario02);
 		usuario00.adicionarGrupo(grupo);
 		usuario01.adicionarGrupo(grupo);
 
@@ -106,52 +70,143 @@ public class Main {
 		usuario01.adicionarGrupo(grupoPrivado);
 		grupoPrivado.adicionarMembro(usuario00);
 		grupoPrivado.adicionarMembro(usuario01);
-		
-		System.out.println(caronante00);
-		System.out.println(caronante01);
-		System.out.println(perfil00);
-		System.out.println(perfil01);
 
-		// 4.2 3)
-		System.out.println("Gerador de ID do Usuário: " + Usuario.getGeradorId());
-
-		System.out.println(usuario00);
-
-		// 4.2 3)
-		System.out.println("Gerador de ID do Usuário: " + Usuario.getGeradorId());
-
-		System.out.println(usuario01);
-		
-		// 4.2 3)
-		System.out.println("Gerador de ID do Usuário: " + Usuario.getGeradorId());
-		
-		// 4.2 3)
-		System.out.println("Gerador de ID do Grupo: " + Grupo.getGeradorId());
-		System.out.println(grupo);
-
-		// 4.2 3)
-		System.out.println("Gerador de ID do Grupo: " + Grupo.getGeradorId());
-		System.out.println(grupoPrivado);
-
-		// 4.2 3)
-		System.out.println("Gerador de ID do Grupo: " + Grupo.getGeradorId());
-		System.out.println(grupoPublico);
-
-		// 4.2 3)
-		System.out.println("Gerador de ID do Grupo: " + Grupo.getGeradorId());
-		
-		/* Questão 3)
-		 * Grupo a = new Grupo("nome", "descricao");
-		 * GrupoPublico b = new GrupoPublico("nome", "descricao");
-		 * GrupoPublico c = new GrupoPublico("nome2", "descricao2");
-		 * 
-		 * a = b;
-		 * b = c;
-		 * 
-		 * System.out.println(a.getTestStatic());
-		 * System.out.println(b.getTestStatic());
-		 * System.out.println(c.getTestStatic());
+		/*
+		 * Instanciação e utilização das classes caronas e teste do enum MetodoPagamento.
+		 *
 		 */
+		
+		Carona carona = new Carona(caronante01, 0, 0, 0, 0, "10:34 12/04/2018", 4, 12);
+		
+		// Testando carona
+		System.out.println("carona (Carona):\n");
+		
+		// Adicione a forma de pagamento CartaoDeCredito
+		System.out.println("Adicionando a forma de Pagamento CartaoDeCredito");
+		carona.adicionarFormaPagamento(MetodoPagamento.CARTAODECREDITO);
+		
+		// Adicione a forma de pagamento Dinheiro
+		System.out.println("Adicionando a forma de pagamento Dinheiro");
+		carona.adicionarFormaPagamento(MetodoPagamento.DINHEIRO);
+		
+		// Verificar se todas essas formas de pagamento estão de fato incluidas
+		System.out.println("Verficando as formas de pagamento incluidas");
+		System.out.println(carona);
+		
+		// Verifique se a carona é gratuita
+		System.out.println("A carona é gratuita?");
+		System.out.println(carona.caronaGratuita());		
+
+		// Verifique se a carona aceita Dinheiro
+		System.out.println("A carona aceita dinheiro?");
+		System.out.println(carona.checarExistenciaFormaPagamento(MetodoPagamento.DINHEIRO));
+		
+		// Remova a forma de pagamento Dinheiro
+		System.out.println("Removendo a forma de pagamento dinheiro");
+		carona.removerFormaPagamento(MetodoPagamento.DINHEIRO);
+		
+		// Adicione a forma de pagamento Gratis
+		System.out.println("Adicionando a forma de pagamento Gratis");
+		carona.adicionarFormaPagamento(MetodoPagamento.GRATIS);
+		
+		// Verifique se a carona aceita Dinheiro
+		System.out.println("A carona aceita dinheiro?");
+		System.out.println(carona.checarExistenciaFormaPagamento(MetodoPagamento.DINHEIRO));
+		
+		// Verifique se a carona é gratuita
+		System.out.println("A carona é gratuita?");
+		System.out.println(carona.caronaGratuita());
+		
+		System.out.println("");
+	
+		// --------------------- ## --------------------- // 
+		
+		CaronaPrivada caronaPrivada = new CaronaPrivada(caronante00, 0, 0, 0, 0, "10:35 13/04/2018", 7, 15); // é uma van
+
+		System.out.println("caronaPrivada (CaronaPrivada):\n");
+
+		// Adicione a forma de pagamento CartaoDeCredito
+		System.out.println("Adicionando a forma de Pagamento CartaoDeCredito");
+		caronaPrivada.adicionarFormaPagamento(MetodoPagamento.CARTAODECREDITO);
+		
+		// Adicione a forma de pagamento Dinheiro
+		System.out.println("Adicionando a forma de pagamento Dinheiro");
+		caronaPrivada.adicionarFormaPagamento(MetodoPagamento.DINHEIRO);
+		
+		// Verifique se a caronaPrivada é gratuita
+		System.out.println("A carona é gratuita?");
+		System.out.println(caronaPrivada.caronaGratuita());		
+
+		// Verifique se a caronaPrivada aceita Dinheiro
+		System.out.println("A carona aceita dinheiro?");
+		System.out.println(caronaPrivada.checarExistenciaFormaPagamento(MetodoPagamento.DINHEIRO));
+		
+		// Remova a forma de pagamento Dinheiro
+		System.out.println("Removendo a forma de pagamento dinheiro");
+		caronaPrivada.removerFormaPagamento(MetodoPagamento.DINHEIRO);
+		
+		// Adicione a forma de pagamento Gratis
+		System.out.println("Adicionando a forma de pagamento Gratis");
+		caronaPrivada.adicionarFormaPagamento(MetodoPagamento.GRATIS);
+		
+		// Verifique se a caronaPrivada aceita Dinheiro
+		System.out.println("A carona aceita dinheiro?");
+		System.out.println(caronaPrivada.checarExistenciaFormaPagamento(MetodoPagamento.DINHEIRO));
+		
+		// Verifique se a caronaPrivada é gratuita
+		System.out.println("A carona é gratuita?");
+		System.out.println(caronaPrivada.caronaGratuita());
+	
+		System.out.println("");
+
+		// --------------------- ## --------------------- // 
+
+		CaronaPublica caronaPublica = new CaronaPublica(caronante02, 0, 0, 0, 0, "11:40 14/04/2018", 2, 18/2); // é uma picape
+
+		System.out.println("caronaPublica (CaronaPublica):\n");
+		
+		// Adicione a forma de pagamento CartaoDeCredito
+		System.out.println("Adicionando a forma de Pagamento CartaoDeCredito");
+		caronaPublica.adicionarFormaPagamento(MetodoPagamento.CARTAODECREDITO);
+		
+		// Adicione a forma de pagamento Dinheiro
+		System.out.println("Adicionando a forma de pagamento Dinheiro");
+		caronaPublica.adicionarFormaPagamento(MetodoPagamento.DINHEIRO);
+		
+		// Verifique se a caronaPublica.é gratuita
+		System.out.println("A carona é gratuita?");
+		System.out.println(caronaPublica.caronaGratuita());		
+
+		// Verifique se a caronaPublica.aceita Dinheiro
+		System.out.println("A carona aceita dinheiro?");
+		System.out.println(caronaPublica.checarExistenciaFormaPagamento(MetodoPagamento.DINHEIRO));
+		
+		// Remova a forma de pagamento Dinheiro
+		System.out.println("Removendo a forma de pagamento dinheiro");
+		caronaPublica.removerFormaPagamento(MetodoPagamento.DINHEIRO);
+		
+		// Adicione a forma de pagamento Gratis
+		System.out.println("Adicionando a forma de pagamento Gratis");
+		caronaPublica.adicionarFormaPagamento(MetodoPagamento.GRATIS);
+		
+		// Verifique se a caronaPublica.aceita Dinheiro
+		System.out.println("A carona aceita dinheiro?");
+		System.out.println(caronaPublica.checarExistenciaFormaPagamento(MetodoPagamento.DINHEIRO));
+		
+		// Verifique se a caronaPublica.é gratuita
+		System.out.println("A carona é gratuita?");
+		System.out.println(caronaPublica.caronaGratuita());
+	
+		System.out.println("");
+
+		// --------------------- ## --------------------- // 
+		
+		// imprima o conteúdo das três instâncias utilizando seus respectivos métodos toString
+		
+		System.out.println(carona);
+		System.out.println(caronaPrivada);
+		System.out.println(caronaPublica);
+		
 	}
 
 }
