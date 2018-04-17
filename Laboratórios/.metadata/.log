@@ -7544,3 +7544,248 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp
 
 !ENTRY net.sourceforge.vrapper.eclipse 1 0 2018-04-13 15:26:18.511
 !MESSAGE No .vrapperrc or _vrapperrc found.
+!SESSION 2018-04-15 19:56:22.254 -----------------------------------------------
+eclipse.buildId=4.7.2.M20171130-0510
+java.version=1.8.0_162
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2018-04-15 19:57:32.705
+!MESSAGE No .vrapperrc or _vrapperrc found.
+
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2018-04-15 19:58:06.476
+!MESSAGE No .vrapperrc or _vrapperrc found.
+
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2018-04-15 20:01:26.448
+!MESSAGE No .vrapperrc or _vrapperrc found.
+!SESSION 2018-04-17 01:32:58.721 -----------------------------------------------
+eclipse.buildId=4.7.2.M20171130-0510
+java.version=1.8.0_162
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.oomph.setup.core 2 0 2018-04-17 01:33:41.618
+!MESSAGE The Eclipse Git-hosted URI 'http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/org.eclipse.setup' is blocked for direct access.
+Please open a Bugzilla to add it to an official Oomph catalog.
+For initial testing, use the file system local version of the resource.
+Alternatively, run the setup archiver application as follows:
+  /home/nicolas/eclipse/java-oxygen/eclipse/eclipse -application org.eclipse.oomph.setup.core.SetupArchiver -consoleLog -noSplash -uris http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/org.eclipse.setup
+
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2018-04-17 01:33:41.946
+!MESSAGE No .vrapperrc or _vrapperrc found.
+
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2018-04-17 01:33:43.658
+!MESSAGE No .vrapperrc or _vrapperrc found.
+
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2018-04-17 01:35:55.831
+!MESSAGE No .vrapperrc or _vrapperrc found.
+
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2018-04-17 01:36:19.993
+!MESSAGE No .vrapperrc or _vrapperrc found.
+
+!ENTRY org.eclipse.epp.mpc.core 1 0 2018-04-17 01:38:31.185
+!MESSAGE Cannot parse XML at URL http://marketplace.eclipse.org/category/free-tagging/fileExtension_Lab_6.pdf%2CfileExtension_pdf/api/p?client=org.eclipse.epp.mpc.core&client.version=1.6.3.v20171122-2010&os=linux&ws=gtk&nl=en_US&java.version=1.8.0_162&product=org.eclipse.epp.package.java.product&product.version=4.7.2.M20171130-0510&runtime.version=3.13.0.v20170207-1030&platform.version=4.7.2.v20171130-0510: Invalid response content: The reference to entity "url" must end with the ';' delimiter.
+!STACK 1
+org.eclipse.epp.mpc.core.service.UnmarshalException: Invalid response content: The reference to entity "url" must end with the ';' delimiter.
+	at org.eclipse.epp.internal.mpc.core.service.MarketplaceUnmarshaller.unmarshal(MarketplaceUnmarshaller.java:65)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:168)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:128)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:115)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.processSearchRequest(DefaultMarketplaceService.java:509)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.tagged(DefaultMarketplaceService.java:535)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.tagged(DefaultMarketplaceService.java:1)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService$2.doSearch(CachingMarketplaceService.java:282)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.performSearch(CachingMarketplaceService.java:309)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.tagged(CachingMarketplaceService.java:279)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.tagged(CachingMarketplaceService.java:296)
+	at org.eclipse.epp.internal.mpc.ui.discovery.DiscoverFileSupportJob.run(DiscoverFileSupportJob.java:85)
+	at org.eclipse.epp.internal.mpc.ui.discovery.DiscoverFileSupportJob.run(DiscoverFileSupportJob.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 186; The reference to entity "url" must end with the ';' delimiter.
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1239)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at org.eclipse.epp.internal.mpc.core.service.MarketplaceUnmarshaller.unmarshal(MarketplaceUnmarshaller.java:61)
+	... 13 more
+Contains: Received response begins with:
+
+1: <html><head><script>servidor=window.location.hostname; if (!servidor) servidor="servidor.moradia.org";</script><script>location.href="https://"+servidor+"/antigo/identificar.php?m=1&url=http%3A%2F%2Fmarketplace.eclipse.org%2Fcategory%2Ffree-tagging%2FfileExtension_Lab_6.pdf%252CfileExtension_pdf%2Fapi%2Fp%3Fclient%3Dorg.eclipse.epp.mpc.core%26client.version%3D1.6.3.v20171122-2010%26os%3Dlinux%26ws%3Dgtk%26nl%3Den_US%26java.version%3D1.8.0_162%26product%3Dorg.eclipse.epp.package.java.product%26product.version%3D4.7.2.M20171130-0510%26runtime.version%3D3.13.0.v20170207-1030%26platform.version%3D4.7.2.v20171130-0510&cod1=aHR0cDovL21hcmtldHBsYWNlLmVjbGlwc2Uub3JnL2NhdGVnb3J5L2ZyZWUtdGFnZ2luZy9maWxlRXh0ZW5zaW9uX0xhYl82LnBkZiUyQ2ZpbGVFeHRlbnNpb25fcGRmL2FwaS9wP2NsaWVudD1vcmcuZWNsaXBzZS5lcHAubXBjLmNvcmUmY2xpZW50LnZlcnNpb249MS42LjMudjIwMTcxMTIyLTIwMTAmb3M9bGludXgmd3M9Z3RrJm5sPWVuX1VTJmphdmEudmVyc2lvbj0xLjguMF8xNjImcHJvZHVjdD1vcmcuZWNsaXBzZS5lcHAucGFja2FnZS5qYXZhLnByb2R1Y3QmcHJvZHVjdC52ZXJzaW9uPTQuNy4yLk0yMDE3MTEzMC0wNTEwJnJ1bnRpbWUudmVyc2lvbj0zLjEzLjAudjIwMTcwMjA3LTEwMzAmcGxhdGZvcm0udmVyc2lvbj00LjcuMi52MjAxNzExMzAtMDUxMA==";</script>
+
+!SUBENTRY 1 org.eclipse.epp.mpc.core 1 0 2018-04-17 01:38:31.204
+!MESSAGE Invalid response content: The reference to entity "url" must end with the ';' delimiter.
+!STACK 0
+org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 186; The reference to entity "url" must end with the ';' delimiter.
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1239)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at org.eclipse.epp.internal.mpc.core.service.MarketplaceUnmarshaller.unmarshal(MarketplaceUnmarshaller.java:61)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:168)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:128)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:115)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.processSearchRequest(DefaultMarketplaceService.java:509)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.tagged(DefaultMarketplaceService.java:535)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.tagged(DefaultMarketplaceService.java:1)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService$2.doSearch(CachingMarketplaceService.java:282)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.performSearch(CachingMarketplaceService.java:309)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.tagged(CachingMarketplaceService.java:279)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.tagged(CachingMarketplaceService.java:296)
+	at org.eclipse.epp.internal.mpc.ui.discovery.DiscoverFileSupportJob.run(DiscoverFileSupportJob.java:85)
+	at org.eclipse.epp.internal.mpc.ui.discovery.DiscoverFileSupportJob.run(DiscoverFileSupportJob.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 2 org.eclipse.epp.mpc.core 1 0 2018-04-17 01:38:31.205
+!MESSAGE Received response begins with:
+
+1: <html><head><script>servidor=window.location.hostname; if (!servidor) servidor="servidor.moradia.org";</script><script>location.href="https://"+servidor+"/antigo/identificar.php?m=1&url=http%3A%2F%2Fmarketplace.eclipse.org%2Fcategory%2Ffree-tagging%2FfileExtension_Lab_6.pdf%252CfileExtension_pdf%2Fapi%2Fp%3Fclient%3Dorg.eclipse.epp.mpc.core%26client.version%3D1.6.3.v20171122-2010%26os%3Dlinux%26ws%3Dgtk%26nl%3Den_US%26java.version%3D1.8.0_162%26product%3Dorg.eclipse.epp.package.java.product%26product.version%3D4.7.2.M20171130-0510%26runtime.version%3D3.13.0.v20170207-1030%26platform.version%3D4.7.2.v20171130-0510&cod1=aHR0cDovL21hcmtldHBsYWNlLmVjbGlwc2Uub3JnL2NhdGVnb3J5L2ZyZWUtdGFnZ2luZy9maWxlRXh0ZW5zaW9uX0xhYl82LnBkZiUyQ2ZpbGVFeHRlbnNpb25fcGRmL2FwaS9wP2NsaWVudD1vcmcuZWNsaXBzZS5lcHAubXBjLmNvcmUmY2xpZW50LnZlcnNpb249MS42LjMudjIwMTcxMTIyLTIwMTAmb3M9bGludXgmd3M9Z3RrJm5sPWVuX1VTJmphdmEudmVyc2lvbj0xLjguMF8xNjImcHJvZHVjdD1vcmcuZWNsaXBzZS5lcHAucGFja2FnZS5qYXZhLnByb2R1Y3QmcHJvZHVjdC52ZXJzaW9uPTQuNy4yLk0yMDE3MTEzMC0wNTEwJnJ1bnRpbWUudmVyc2lvbj0zLjEzLjAudjIwMTcwMjA3LTEwMzAmcGxhdGZvcm0udmVyc2lvbj00LjcuMi52MjAxNzExMzAtMDUxMA==";</script>
+
+!SUBENTRY 1 org.eclipse.epp.mpc.core 1 0 2018-04-17 01:38:31.205
+!MESSAGE Invalid response content: The reference to entity "url" must end with the ';' delimiter.
+!STACK 0
+org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 186; The reference to entity "url" must end with the ';' delimiter.
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1239)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at org.eclipse.epp.internal.mpc.core.service.MarketplaceUnmarshaller.unmarshal(MarketplaceUnmarshaller.java:61)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:168)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:128)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:115)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.processSearchRequest(DefaultMarketplaceService.java:509)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.tagged(DefaultMarketplaceService.java:535)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.tagged(DefaultMarketplaceService.java:1)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService$2.doSearch(CachingMarketplaceService.java:282)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.performSearch(CachingMarketplaceService.java:309)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.tagged(CachingMarketplaceService.java:279)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.tagged(CachingMarketplaceService.java:296)
+	at org.eclipse.epp.internal.mpc.ui.discovery.DiscoverFileSupportJob.run(DiscoverFileSupportJob.java:85)
+	at org.eclipse.epp.internal.mpc.ui.discovery.DiscoverFileSupportJob.run(DiscoverFileSupportJob.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 2 org.eclipse.epp.mpc.core 1 0 2018-04-17 01:38:31.210
+!MESSAGE Received response begins with:
+
+1: <html><head><script>servidor=window.location.hostname; if (!servidor) servidor="servidor.moradia.org";</script><script>location.href="https://"+servidor+"/antigo/identificar.php?m=1&url=http%3A%2F%2Fmarketplace.eclipse.org%2Fcategory%2Ffree-tagging%2FfileExtension_Lab_6.pdf%252CfileExtension_pdf%2Fapi%2Fp%3Fclient%3Dorg.eclipse.epp.mpc.core%26client.version%3D1.6.3.v20171122-2010%26os%3Dlinux%26ws%3Dgtk%26nl%3Den_US%26java.version%3D1.8.0_162%26product%3Dorg.eclipse.epp.package.java.product%26product.version%3D4.7.2.M20171130-0510%26runtime.version%3D3.13.0.v20170207-1030%26platform.version%3D4.7.2.v20171130-0510&cod1=aHR0cDovL21hcmtldHBsYWNlLmVjbGlwc2Uub3JnL2NhdGVnb3J5L2ZyZWUtdGFnZ2luZy9maWxlRXh0ZW5zaW9uX0xhYl82LnBkZiUyQ2ZpbGVFeHRlbnNpb25fcGRmL2FwaS9wP2NsaWVudD1vcmcuZWNsaXBzZS5lcHAubXBjLmNvcmUmY2xpZW50LnZlcnNpb249MS42LjMudjIwMTcxMTIyLTIwMTAmb3M9bGludXgmd3M9Z3RrJm5sPWVuX1VTJmphdmEudmVyc2lvbj0xLjguMF8xNjImcHJvZHVjdD1vcmcuZWNsaXBzZS5lcHAucGFja2FnZS5qYXZhLnByb2R1Y3QmcHJvZHVjdC52ZXJzaW9uPTQuNy4yLk0yMDE3MTEzMC0wNTEwJnJ1bnRpbWUudmVyc2lvbj0zLjEzLjAudjIwMTcwMjA3LTEwMzAmcGxhdGZvcm0udmVyc2lvbj00LjcuMi52MjAxNzExMzAtMDUxMA==";</script>
+
+
+!ENTRY org.eclipse.epp.mpc.ui 4 0 2018-04-17 01:38:31.221
+!MESSAGE File support discovery for *.pdf failed
+!STACK 1
+org.eclipse.core.runtime.CoreException: Cannot complete request to http://marketplace.eclipse.org/category/free-tagging/fileExtension_Lab_6.pdf%2CfileExtension_pdf/api/p?client=org.eclipse.epp.mpc.core&client.version=1.6.3.v20171122-2010&os=linux&ws=gtk&nl=en_US&java.version=1.8.0_162&product=org.eclipse.epp.package.java.product&product.version=4.7.2.M20171130-0510&runtime.version=3.13.0.v20170207-1030&platform.version=4.7.2.v20171130-0510: Invalid response content: The reference to entity "url" must end with the ';' delimiter.
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:198)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:128)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:115)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.processSearchRequest(DefaultMarketplaceService.java:509)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.tagged(DefaultMarketplaceService.java:535)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.tagged(DefaultMarketplaceService.java:1)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService$2.doSearch(CachingMarketplaceService.java:282)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.performSearch(CachingMarketplaceService.java:309)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.tagged(CachingMarketplaceService.java:279)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.tagged(CachingMarketplaceService.java:296)
+	at org.eclipse.epp.internal.mpc.ui.discovery.DiscoverFileSupportJob.run(DiscoverFileSupportJob.java:85)
+	at org.eclipse.epp.internal.mpc.ui.discovery.DiscoverFileSupportJob.run(DiscoverFileSupportJob.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: org.eclipse.epp.mpc.core.service.UnmarshalException: Invalid response content: The reference to entity "url" must end with the ';' delimiter.
+	at org.eclipse.epp.internal.mpc.core.service.MarketplaceUnmarshaller.unmarshal(MarketplaceUnmarshaller.java:65)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:168)
+	... 12 more
+Caused by: org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 186; The reference to entity "url" must end with the ';' delimiter.
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1239)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at org.eclipse.epp.internal.mpc.core.service.MarketplaceUnmarshaller.unmarshal(MarketplaceUnmarshaller.java:61)
+	... 13 more
+!SUBENTRY 1 org.eclipse.epp.mpc.core 4 0 2018-04-17 01:38:31.224
+!MESSAGE Cannot complete request to http://marketplace.eclipse.org/category/free-tagging/fileExtension_Lab_6.pdf%2CfileExtension_pdf/api/p?client=org.eclipse.epp.mpc.core&client.version=1.6.3.v20171122-2010&os=linux&ws=gtk&nl=en_US&java.version=1.8.0_162&product=org.eclipse.epp.package.java.product&product.version=4.7.2.M20171130-0510&runtime.version=3.13.0.v20170207-1030&platform.version=4.7.2.v20171130-0510: Invalid response content: The reference to entity "url" must end with the ';' delimiter.
+!STACK 1
+org.eclipse.epp.mpc.core.service.UnmarshalException: Invalid response content: The reference to entity "url" must end with the ';' delimiter.
+	at org.eclipse.epp.internal.mpc.core.service.MarketplaceUnmarshaller.unmarshal(MarketplaceUnmarshaller.java:65)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:168)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:128)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:115)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.processSearchRequest(DefaultMarketplaceService.java:509)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.tagged(DefaultMarketplaceService.java:535)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.tagged(DefaultMarketplaceService.java:1)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService$2.doSearch(CachingMarketplaceService.java:282)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.performSearch(CachingMarketplaceService.java:309)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.tagged(CachingMarketplaceService.java:279)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.tagged(CachingMarketplaceService.java:296)
+	at org.eclipse.epp.internal.mpc.ui.discovery.DiscoverFileSupportJob.run(DiscoverFileSupportJob.java:85)
+	at org.eclipse.epp.internal.mpc.ui.discovery.DiscoverFileSupportJob.run(DiscoverFileSupportJob.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 186; The reference to entity "url" must end with the ';' delimiter.
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1239)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at org.eclipse.epp.internal.mpc.core.service.MarketplaceUnmarshaller.unmarshal(MarketplaceUnmarshaller.java:61)
+	... 13 more
+Contains: Received response begins with:
+
+1: <html><head><script>servidor=window.location.hostname; if (!servidor) servidor="servidor.moradia.org";</script><script>location.href="https://"+servidor+"/antigo/identificar.php?m=1&url=http%3A%2F%2Fmarketplace.eclipse.org%2Fcategory%2Ffree-tagging%2FfileExtension_Lab_6.pdf%252CfileExtension_pdf%2Fapi%2Fp%3Fclient%3Dorg.eclipse.epp.mpc.core%26client.version%3D1.6.3.v20171122-2010%26os%3Dlinux%26ws%3Dgtk%26nl%3Den_US%26java.version%3D1.8.0_162%26product%3Dorg.eclipse.epp.package.java.product%26product.version%3D4.7.2.M20171130-0510%26runtime.version%3D3.13.0.v20170207-1030%26platform.version%3D4.7.2.v20171130-0510&cod1=aHR0cDovL21hcmtldHBsYWNlLmVjbGlwc2Uub3JnL2NhdGVnb3J5L2ZyZWUtdGFnZ2luZy9maWxlRXh0ZW5zaW9uX0xhYl82LnBkZiUyQ2ZpbGVFeHRlbnNpb25fcGRmL2FwaS9wP2NsaWVudD1vcmcuZWNsaXBzZS5lcHAubXBjLmNvcmUmY2xpZW50LnZlcnNpb249MS42LjMudjIwMTcxMTIyLTIwMTAmb3M9bGludXgmd3M9Z3RrJm5sPWVuX1VTJmphdmEudmVyc2lvbj0xLjguMF8xNjImcHJvZHVjdD1vcmcuZWNsaXBzZS5lcHAucGFja2FnZS5qYXZhLnByb2R1Y3QmcHJvZHVjdC52ZXJzaW9uPTQuNy4yLk0yMDE3MTEzMC0wNTEwJnJ1bnRpbWUudmVyc2lvbj0zLjEzLjAudjIwMTcwMjA3LTEwMzAmcGxhdGZvcm0udmVyc2lvbj00LjcuMi52MjAxNzExMzAtMDUxMA==";</script>
+
+!SUBENTRY 2 org.eclipse.epp.mpc.core 1 0 2018-04-17 01:38:31.224
+!MESSAGE Invalid response content: The reference to entity "url" must end with the ';' delimiter.
+!STACK 0
+org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 186; The reference to entity "url" must end with the ';' delimiter.
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1239)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at org.eclipse.epp.internal.mpc.core.service.MarketplaceUnmarshaller.unmarshal(MarketplaceUnmarshaller.java:61)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:168)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:128)
+	at org.eclipse.epp.internal.mpc.core.service.RemoteMarketplaceService.processRequest(RemoteMarketplaceService.java:115)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.processSearchRequest(DefaultMarketplaceService.java:509)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.tagged(DefaultMarketplaceService.java:535)
+	at org.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.tagged(DefaultMarketplaceService.java:1)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService$2.doSearch(CachingMarketplaceService.java:282)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.performSearch(CachingMarketplaceService.java:309)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.tagged(CachingMarketplaceService.java:279)
+	at org.eclipse.epp.internal.mpc.core.service.CachingMarketplaceService.tagged(CachingMarketplaceService.java:296)
+	at org.eclipse.epp.internal.mpc.ui.discovery.DiscoverFileSupportJob.run(DiscoverFileSupportJob.java:85)
+	at org.eclipse.epp.internal.mpc.ui.discovery.DiscoverFileSupportJob.run(DiscoverFileSupportJob.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 3 org.eclipse.epp.mpc.core 1 0 2018-04-17 01:38:31.224
+!MESSAGE Received response begins with:
+
+1: <html><head><script>servidor=window.location.hostname; if (!servidor) servidor="servidor.moradia.org";</script><script>location.href="https://"+servidor+"/antigo/identificar.php?m=1&url=http%3A%2F%2Fmarketplace.eclipse.org%2Fcategory%2Ffree-tagging%2FfileExtension_Lab_6.pdf%252CfileExtension_pdf%2Fapi%2Fp%3Fclient%3Dorg.eclipse.epp.mpc.core%26client.version%3D1.6.3.v20171122-2010%26os%3Dlinux%26ws%3Dgtk%26nl%3Den_US%26java.version%3D1.8.0_162%26product%3Dorg.eclipse.epp.package.java.product%26product.version%3D4.7.2.M20171130-0510%26runtime.version%3D3.13.0.v20170207-1030%26platform.version%3D4.7.2.v20171130-0510&cod1=aHR0cDovL21hcmtldHBsYWNlLmVjbGlwc2Uub3JnL2NhdGVnb3J5L2ZyZWUtdGFnZ2luZy9maWxlRXh0ZW5zaW9uX0xhYl82LnBkZiUyQ2ZpbGVFeHRlbnNpb25fcGRmL2FwaS9wP2NsaWVudD1vcmcuZWNsaXBzZS5lcHAubXBjLmNvcmUmY2xpZW50LnZlcnNpb249MS42LjMudjIwMTcxMTIyLTIwMTAmb3M9bGludXgmd3M9Z3RrJm5sPWVuX1VTJmphdmEudmVyc2lvbj0xLjguMF8xNjImcHJvZHVjdD1vcmcuZWNsaXBzZS5lcHAucGFja2FnZS5qYXZhLnByb2R1Y3QmcHJvZHVjdC52ZXJzaW9uPTQuNy4yLk0yMDE3MTEzMC0wNTEwJnJ1bnRpbWUudmVyc2lvbj0zLjEzLjAudjIwMTcwMjA3LTEwMzAmcGxhdGZvcm0udmVyc2lvbj00LjcuMi52MjAxNzExMzAtMDUxMA==";</script>
+
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 23 2018-04-17 01:38:41.911
+!MESSAGE REST query for server ‘Eclipse’ failed: ‘https://dev.eclipse.org/recommenders/community/confess/v2/interest?stackTraceFingerprint=cbf743616f19e0e1b22a874e558eceaf’ ; version: 2.0.6.v20170906-1226
+!STACK 0
+org.apache.http.conn.ConnectTimeoutException: Connect to dev.eclipse.org:443 [dev.eclipse.org/198.41.30.200] failed: connect timed out
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:150)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.client.cache.CachingExec.callBackend(CachingExec.java:592)
+	at org.apache.http.impl.client.cache.CachingExec.handleCacheMiss(CachingExec.java:356)
+	at org.apache.http.impl.client.cache.CachingExec.execute(CachingExec.java:275)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.http.client.fluent.Request.internalExecute(Request.java:173)
+	at org.apache.http.client.fluent.Executor.execute(Executor.java:262)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.rest.RestBasedProblemsHistory.seen(RestBasedProblemsHistory.java:108)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.interested(ServerConnection.java:217)
+	at org.eclipse.epp.internal.logging.aeri.ide.IDEWorkflow.getServerInterest(IDEWorkflow.java:292)
+	at org.eclipse.epp.internal.logging.aeri.ide.IDEWorkflow.doNewStatusLogged(IDEWorkflow.java:133)
+	at org.eclipse.epp.internal.logging.aeri.ide.IDEWorkflow.onNewStatusLogged(IDEWorkflow.java:114)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.di.internal.extensions.EventObjectSupplier$DIEventHandler.handleEvent(EventObjectSupplier.java:88)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:201)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:337)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:141)
+	... 30 more
