@@ -95,7 +95,7 @@ public class Usuario {
 	// Método toString:
 	@Override
 	public String toString() {
-		String out = "Usuario\n";
+		String out = "\n";
 		out += "- id: " + this.id + "\n";
 		out += "- nome: " + this.nome + "\n";
 		out += "- email: " + this.email + "\n";

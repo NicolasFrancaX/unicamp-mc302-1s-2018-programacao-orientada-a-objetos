@@ -21,7 +21,7 @@
 	<section name="DialogBounds_GenerateConstructorUsingFieldsSelectionDialog">
 		<item value="532" key="DIALOG_WIDTH"/>
 		<item value="1|Noto Sans|9.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value="727" key="DIALOG_HEIGHT"/>
+		<item value="743" key="DIALOG_HEIGHT"/>
 		<item value="75" key="DIALOG_X_ORIGIN"/>
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
 	</section>
@@ -45,9 +45,9 @@
 		<item value="false" key="org.eclipse.jdt.internal.ui.typehierarchy.HierarchyInformationControlDIALOG_USE_PERSISTED_LOCATION"/>
 	</section>
 	<section name="DialogBounds_GetterSetterTreeSelectionDialog">
-		<item value="545" key="DIALOG_WIDTH"/>
+		<item value="549" key="DIALOG_WIDTH"/>
 		<item value="1|Noto Sans|9.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value="743" key="DIALOG_HEIGHT"/>
+		<item value="736" key="DIALOG_HEIGHT"/>
 		<item value="498" key="DIALOG_X_ORIGIN"/>
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
 	</section>
@@ -85,6 +85,8 @@
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="quick_assist_proposal_size">
+		<item value="250" key="size.y"/>
+		<item value="363" key="size.x"/>
 	</section>
 	<section name="completion_proposal_size">
 		<item value="144" key="size.y"/>

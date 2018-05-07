@@ -24,7 +24,7 @@ public class GrupoPrivado extends Grupo {
 	// Método toString:
 	@Override
 	public String toString() {
-		String out = "GrupoPrivado\n";
+		String out = "\n";
 		out += "- id: " + getId() + "\n";
 		out += "- nome: " + getNome() + "\n";
 		out += "- descrição: " + getDescricao() + "\n";

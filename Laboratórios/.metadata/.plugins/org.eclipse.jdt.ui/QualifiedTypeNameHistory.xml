@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
-<fullyQualifiedTypeName name="Usuario"/>
 <fullyQualifiedTypeName name="Perfil"/>
 <fullyQualifiedTypeName name="Grupo"/>
-<fullyQualifiedTypeName name="Caronante"/>
 <fullyQualifiedTypeName name="Caroneiro"/>
 <fullyQualifiedTypeName name="GrupoPrivado"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="GrupoPublico"/>
-<fullyQualifiedTypeName name="Carona"/>
 <fullyQualifiedTypeName name="CaronaPrivada"/>
 <fullyQualifiedTypeName name="CaronaPublica"/>
 <fullyQualifiedTypeName name="MetodoPagamento"/>
+<fullyQualifiedTypeName name="Usuario"/>
+<fullyQualifiedTypeName name="Caronante"/>
+<fullyQualifiedTypeName name="Carona"/>
+<fullyQualifiedTypeName name="CaronaCaronante"/>
+<fullyQualifiedTypeName name="CaronaCaroneiro"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

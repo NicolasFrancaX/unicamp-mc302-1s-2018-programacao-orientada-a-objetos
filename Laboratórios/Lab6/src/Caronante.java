@@ -110,10 +110,18 @@ public class Caronante {
 		this.caronas = caronas;
 	}
 
+	Carona oferecerCarona() {
+		CaronaCaronante cc = new CaronaCaronante(this);
+		Carona carona = new Carona(cc);
+		cc.setCarona(carona);
+
+		return carona;
+	}
+
 	// Método toString:
 	@Override
 	public String toString() {
-		String out = "Caronante\n";
+		String out = "\n";
 		out += "- tempo de habilitação: " + this.tempoHabilitacao + "\n";
 		out += "- genero musical favorito: " + this.generoMusicalFavorito + "\n";
 		out += "- placa do veículo: " + this.placaVeiculo + "\n";
@@ -123,11 +131,6 @@ public class Caronante {
 		// Problema recursivo: out += "- perfil: " + this.perfil + "\n";
 		return out;
 	}
-
-	Carona oferecerCarona() {
-		return new Carona(this);
-	}
-	
 
 	/*
 	public int getAssentosDisponiveis() {

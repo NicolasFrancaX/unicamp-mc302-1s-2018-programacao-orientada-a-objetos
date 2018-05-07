@@ -73,7 +73,7 @@ public class Grupo {
 	// Método toString:
 	@Override
 	public String toString() {
-		String out = "Grupo\n";
+		String out = "\n";
 		out += "- id: " + this.id + "\n";
 		out += "- nome: " + this.nome + "\n";
 		out += "- descrição: " + this.descricao + "\n";

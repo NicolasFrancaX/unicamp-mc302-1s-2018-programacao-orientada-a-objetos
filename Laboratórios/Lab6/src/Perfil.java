@@ -8,7 +8,10 @@ public class Perfil {
 	private float avaliacao;
 	private Caroneiro caroneiro;
 	private Caronante caronante;
+	private Usuario usuario;
 	// Perguntar para professora se não vamos usar essa variável: private int tempoHabilitacao;
+	
+	
 	
 	// Método Construtor:
 	public Perfil(char sexo, String dataNascimento, String cidade, String estado,
@@ -26,6 +29,22 @@ public class Perfil {
 		// L12: this.tempoHabilitacao = tempoHabilitacao;
 	}
 	
+	public Perfil(char sexo, String dataNascimento, String cidade, String estado, String telefone, boolean fumante,
+			float avaliacao, Caroneiro caroneiro, Caronante caronante, Usuario usuario) {
+		this.sexo = sexo;
+		this.dataNascimento = dataNascimento;
+		this.cidade = cidade;
+		this.estado = estado;
+		this.telefone = telefone;
+		this.fumante = fumante;
+		this.avaliacao = avaliacao;
+		this.caroneiro = caroneiro;
+		this.caronante = caronante;
+		this.usuario = usuario;
+	}
+
+
+
 	public char getSexo() {
 		return sexo;
 	}
@@ -94,19 +113,18 @@ public class Perfil {
 		this.caronante = caronante;
 	}
 	
-	/*
-	public int getTempoHabilitacao() {
-		return tempoHabilitacao;
+	public Usuario getUsuario() {
+		return usuario;
 	}
-	public void setTempoHabilitacao(int tempoHabilitacao) {
-		this.tempoHabilitacao = tempoHabilitacao;
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
-	*/
 
 	// Método toString:
 	@Override
 	public String toString() {
-		String out = "Perfil\n";
+		String out = "\n";
 		out += "- sexo: " + this.sexo + "\n";
 		out += "- data de nascimento: " + this.dataNascimento + "\n";
 		out += "- cidade: " + this.cidade + "\n";

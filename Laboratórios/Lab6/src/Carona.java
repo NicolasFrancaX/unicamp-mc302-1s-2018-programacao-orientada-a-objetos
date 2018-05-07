@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class Carona {
-	private ArrayList<Caroneiro> caroneiros;
-	private Caronante caronante;
+	private ArrayList<CaronaCaroneiro> caroneiros;
+	private final CaronaCaronante caronante;
 	private double latitudeEncontro;
 	private double longitudeEncontro;
 	private double latitudeDestino;
@@ -13,13 +13,15 @@ public class Carona {
 	private int assentosDisponiveis;
 	private ArrayList<MetodoPagamento> formaPagAceitas;
 
-	public Carona(Caronante caronante) {
+	public Carona(CaronaCaronante caronante) {
 		this.caronante = caronante;
-		this.caroneiros = new ArrayList<Caroneiro>();
+		this.caroneiros = new ArrayList<CaronaCaroneiro>(4);
 		this.formaPagAceitas = new ArrayList<MetodoPagamento>();
+		this.ocupacaoMaxima = 4;
+		this.assentosDisponiveis = 4;
 	}
 	
-	public Carona(Caronante caronante, double latitudeEncontro, double longitudeEncontro, double latitudeDestino,
+	public Carona(CaronaCaronante caronante, double latitudeEncontro, double longitudeEncontro, double latitudeDestino,
 			double longitudeDestino, String horaDiaEncontro, int assentosDisponiveis, float valor) {
 		this.caronante = caronante;
 		this.latitudeEncontro = latitudeEncontro;
@@ -29,12 +31,12 @@ public class Carona {
 		this.horaDiaEncontro = horaDiaEncontro;
 		this.assentosDisponiveis = assentosDisponiveis;
 		this.ocupacaoMaxima = assentosDisponiveis;
-		this.caroneiros = new ArrayList<Caroneiro>(ocupacaoMaxima);
+		this.caroneiros = new ArrayList<CaronaCaroneiro>(ocupacaoMaxima);
 		this.valor = valor;
 		this.formaPagAceitas = new ArrayList<MetodoPagamento>();
 	}
 
-	public Carona(Caronante caronante, double latitudeEncontro, double longitudeEncontro, double latitudeDestino, double longitudeDestino,
+	public Carona(CaronaCaronante caronante, double latitudeEncontro, double longitudeEncontro, double latitudeDestino, double longitudeDestino,
 			String horaDiaEncontro, int ocupacaoMaxima, int assentosDisponiveis, float valor) {
 		this.caronante = caronante;
 		this.latitudeEncontro = latitudeEncontro;
@@ -44,26 +46,13 @@ public class Carona {
 		this.horaDiaEncontro = horaDiaEncontro;
 		this.ocupacaoMaxima = ocupacaoMaxima;
 		this.assentosDisponiveis = assentosDisponiveis;
-		this.caroneiros = new ArrayList<Caroneiro>(ocupacaoMaxima);
+		this.caroneiros = new ArrayList<CaronaCaroneiro>(ocupacaoMaxima);
 		this.formaPagAceitas = new ArrayList<MetodoPagamento>();
 		this.valor = valor;
 	}
 
-	public Carona(Caronante caronante, double latitudeEncontro, double longitudeEncontro, double latitudeDestino,
-			double longitudeDestino, String horaDiaEncontro, int assentosDisponiveis) {
-		this.caronante = caronante;
-		this.latitudeEncontro = latitudeEncontro;
-		this.longitudeEncontro = longitudeEncontro;
-		this.latitudeDestino = latitudeDestino;
-		this.longitudeDestino = longitudeDestino;
-		this.horaDiaEncontro = horaDiaEncontro;
-		this.assentosDisponiveis = assentosDisponiveis;
-		this.ocupacaoMaxima = assentosDisponiveis;
-		this.caroneiros = new ArrayList<Caroneiro>(ocupacaoMaxima);
-		this.formaPagAceitas = new ArrayList<MetodoPagamento>();
-	}
 
-	public Carona(Caronante caronante, double latitudeEncontro, double longitudeEncontro, double latitudeDestino, double longitudeDestino,
+	public Carona(CaronaCaronante caronante, double latitudeEncontro, double longitudeEncontro, double latitudeDestino, double longitudeDestino,
 			String horaDiaEncontro, int ocupacaoMaxima, int assentosDisponiveis) {
 		this.caronante = caronante;
 		this.latitudeEncontro = latitudeEncontro;
@@ -73,7 +62,7 @@ public class Carona {
 		this.horaDiaEncontro = horaDiaEncontro;
 		this.ocupacaoMaxima = ocupacaoMaxima;
 		this.assentosDisponiveis = assentosDisponiveis;
-		this.caroneiros = new ArrayList<Caroneiro>(ocupacaoMaxima);
+		this.caroneiros = new ArrayList<CaronaCaroneiro>(ocupacaoMaxima);
 		this.formaPagAceitas = new ArrayList<MetodoPagamento>();
 	}
 
@@ -81,11 +70,38 @@ public class Carona {
 		if (this.assentosDisponiveis > 0) {
 			System.out.println(caroneiro + " - Assento reservado com sucesso.");
 			this.assentosDisponiveis--;
-			return this.caroneiros.add(caroneiro);
+		} else 
+			System.out.println(caroneiro + " - Assento não reservado.");
+
+		return this.caroneiros.add(new CaronaCaroneiro(caroneiro, this));
+	}
+	
+	public boolean removerCaroneiro(Caroneiro caroneiro) {
+		for (CaronaCaroneiro cc : caroneiros) 
+			if (cc.getCaroneiro() == caroneiro)
+				return caroneiros.remove(cc);
+		
+		return false;
+	}
+	
+	public boolean atribuirNotaCaroneiro(int idUsuario, float avaliacao) {
+		for (CaronaCaroneiro cc : caroneiros) {
+			if (cc.getCaroneiro().getPerfil().getUsuario().getId() == idUsuario) {
+				cc.setAvaliacao(avaliacao);
+				return true;
+			}
 		}
 		
-		System.out.println(caroneiro + " - Assento não reservado.");
 		return false;
+	}
+	
+	public boolean atribuirNotaCaronante(float avaliacao) {
+		if (caroneiros.isEmpty()) 
+			return false;
+			
+		caronante.setAvaliacao(avaliacao);
+
+		return true;
 	}
 	
 	public int verificaOcupacao() {
@@ -103,7 +119,8 @@ public class Carona {
 			return formaPagAceitas.add(mp);
 		}
 		
-		if (mp != MetodoPagamento.GRATIS && formaPagAceitas.size() != 0 && formaPagAceitas.get(0) == MetodoPagamento.GRATIS) {
+		if (mp != MetodoPagamento.GRATIS && formaPagAceitas.size() != 0 &&
+				formaPagAceitas.get(0) == MetodoPagamento.GRATIS) {
 			formaPagAceitas.remove(0);
 		}
 
@@ -122,7 +139,8 @@ public class Carona {
 		return formaPagAceitas.get(0) == MetodoPagamento.GRATIS;
 	}
 
-	public ArrayList<Caroneiro> getCaroneiros() {
+	public ArrayList<CaronaCaroneiro> getCaroneiros() {
+
 		return caroneiros;
 	}
 
@@ -182,10 +200,10 @@ public class Carona {
 		this.assentosDisponiveis = assentosDisponiveis;
 	}
 
-	public Caronante getCaronante() {
+	public CaronaCaronante getCaronante() {
 		return caronante;
 	}
-
+	
 	public float getValor() {
 		return valor;
 	}
@@ -202,23 +220,34 @@ public class Carona {
 		this.formaPagAceitas = formaPagAceitas;
 	}
 
-	public void setCaroneiros(ArrayList<Caroneiro> caroneiros) {
+	public void setCaroneiros(ArrayList<CaronaCaroneiro> caroneiros) {
 		this.caroneiros = caroneiros;
 	}
+	
+	
 
+	public String mostrarCaroneiros() {
+		String out = "\n";
+
+		for (int i = 0; i < caroneiros.size(); ++i)
+			out += "Número do Caroneiro: " + i + "" + caroneiros.get(i) + "\n";
+		
+		return out;
+	}
+	
 	@Override
 	public String toString() {
-		String out = "Carona: \n";
-		out += "- caronante: " + caronante;
+		String out = "\n";
+		out += "- caronante: " + getCaronante();
 		out += "- valor: " + valor + "\n";
 		out += "- formas de pagamento" + formaPagAceitas + "\n";
 		out += "- ocupação máxima: " + ocupacaoMaxima + "\n";
 		out += "- assentos disponíveis: " + assentosDisponiveis + "\n";
-		out += "- caroneiros: " + caroneiros + "\n";
+		out += "- caroneiros: " + mostrarCaroneiros() + "\n";
 		out += "- latitude do encontro: " + latitudeEncontro + "\n";
 		out += "- longitude do encontro: " + longitudeEncontro + "\n";
 		out += "- latitude do destino: " + latitudeDestino + "\n";
-		out += "- longitute do destino" + longitudeDestino + "\n";
+		out += "- longitute do destino: " + longitudeDestino + "\n";
 		out += "- hora e dia do encontro: " + horaDiaEncontro + "\n";
 		return out;
 	}

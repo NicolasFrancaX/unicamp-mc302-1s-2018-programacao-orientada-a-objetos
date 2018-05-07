@@ -72,7 +72,7 @@ public class Caroneiro {
 	// Método toString:
 	@Override
 	public String toString() {
-		String out = "Caroneiro\n";
+		String out = "\n";
 		out += "- cartão de crédito: " + this.cartaoDeCredito + "\n";
 		// out += "- perfil: " + this.perfil + "\n";
 		// out += "- caronas: " + this.caronas + "\n";
