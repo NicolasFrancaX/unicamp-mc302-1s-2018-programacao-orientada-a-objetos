@@ -1,7 +1,6 @@
 INDEX VERSION 1.130+/home/nicolas/Desktop/unicamp-mc302-1s-2018-programacao-orientada-a-objetos/Laboratórios/.metadata/.plugins/org.eclipse.jdt.core
 2232784358.index
 1796994250.index
-4061308272.index
 460390469.index
 471647324.index
 2188923391.index
