@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Carona {
+public abstract class Carona {
 	private ArrayList<CaronaCaroneiro> caroneiros;
 	private final CaronaCaronante caronante;
 	private double latitudeEncontro;
@@ -66,23 +66,8 @@ public class Carona {
 		this.formaPagAceitas = new ArrayList<MetodoPagamento>();
 	}
 
-	public boolean adicionarCaroneiro(Caroneiro caroneiro) {
-		if (this.assentosDisponiveis > 0) {
-			System.out.println(caroneiro + " - Assento reservado com sucesso.");
-			this.assentosDisponiveis--;
-		} else 
-			System.out.println(caroneiro + " - Assento não reservado.");
-
-		return this.caroneiros.add(new CaronaCaroneiro(caroneiro, this));
-	}
-	
-	public boolean removerCaroneiro(Caroneiro caroneiro) {
-		for (CaronaCaroneiro cc : caroneiros) 
-			if (cc.getCaroneiro() == caroneiro)
-				return caroneiros.remove(cc);
-		
-		return false;
-	}
+	public abstract boolean adicionarCaroneiro(Caroneiro caroneiro);
+	public abstract boolean removerCaroneiro(Caroneiro caroneiro);
 	
 	public boolean atribuirNotaCaroneiro(int idUsuario, float avaliacao) {
 		for (CaronaCaroneiro cc : caroneiros) {

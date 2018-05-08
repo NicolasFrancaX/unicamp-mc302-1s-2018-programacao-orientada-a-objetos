@@ -5,12 +5,7 @@ public class Caroneiro {
 	private ArrayList<CaronaCaroneiro> caronas;
 	private Perfil perfil;
 
-	// Perguntar professora: private boolean pagamentoEmDinheiro;
-	// private static int numCaronantes;
-	
-	public Caroneiro() {
-		// Caroneiro.numCaronantes++;
-	}
+	public Caroneiro() {}
 	
 	public Caroneiro(String cartaoDeCredito) {
 		this.cartaoDeCredito = cartaoDeCredito;
@@ -19,16 +14,11 @@ public class Caroneiro {
 	public Caroneiro(String cartaoDeCredito, Perfil perfil) {
 		this.cartaoDeCredito = cartaoDeCredito;
 		this.perfil = perfil;
-		// Caroneiro.numCaronantes++;
 	}
-
-	/*
-	public Caroneiro(boolean pagamentoEmDinheiro) {
-		this.pagamentoEmDinheiro = pagamentoEmDinheiro;
-		Caroneiro.numCaronantes++;
-	}
-	*/
 		
+	public boolean pedirCarona(Carona carona) {
+		return carona.adicionarCaroneiro(this);
+	}
 	public String getCartaoDeCredito() {
 		return cartaoDeCredito;
 	}
@@ -53,29 +43,10 @@ public class Caroneiro {
 		this.perfil = perfil;
 	}
 	
-	
-	/*
-	public boolean isPagamentoEmDinheiro() {
-		return pagamentoEmDinheiro;
-	}
-	public void setPagamentoEmDinheiro(boolean pagamentoEmDinheiro) {
-		this.pagamentoEmDinheiro = pagamentoEmDinheiro;
-	}
-	public static int getNumCaronantes() {
-		return numCaronantes;
-	}
-	public static void setNumCaronantes(int numCaronantes) {
-		Caroneiro.numCaronantes = numCaronantes;
-	}
-	*/
-	
-	// Método toString:
 	@Override
 	public String toString() {
 		String out = "\n";
 		out += "- cartão de crédito: " + this.cartaoDeCredito + "\n";
-		// out += "- perfil: " + this.perfil + "\n";
-		// out += "- caronas: " + this.caronas + "\n";
 		return out;
 	}
 

@@ -1,33 +1,46 @@
 import java.util.ArrayList;
 
-// public final class Grupo {
-public class Grupo {
+public abstract class Grupo {
 	private int id;
 	private String nome;
 	private String descricao;
-	private ArrayList<Usuario> membros;
+	private ArrayList<GrupoUsuario> membros;
+	private Usuario dono;
 	private static int geradorId;
 
-	/*
-	 * Questão 3)
-	 * private static int testStatic = 1;
-	 * private int testStatic = 1;
-	 * 
-	 * public int getTestStatic() {
-	 * 		return testStatic;
-	 * }
-	 */
+	// Grupo Fantasma, pra resolver bug...
+	// Não é elegante.
+	public Grupo() {
+	}
 
-	public Grupo(String nome, String descricao) {
+	public Grupo(Usuario dono) {
+		this.id = geradorId;
+		this.membros = new ArrayList<GrupoUsuario>();
+		this.dono = dono;
+		Grupo.geradorId++;
+	}
+
+	public Grupo(String nome, String descricao, Usuario dono) {
 		this.id = geradorId;
 		this.nome = nome;
 		this.descricao = descricao;
-		this.membros = new ArrayList<Usuario>();
+		this.membros = new ArrayList<GrupoUsuario>();
+		this.dono = dono;
 		Grupo.geradorId++;
 	}
 	
-	public void adicionarMembro(Usuario usuario) {
-		membros.add(usuario);
+	public abstract void adicionarMembro(Usuario usuario); 
+	
+	public void alterarDono(Usuario novoDono, Usuario antigoDono) {
+		setDono(novoDono);
+	}
+	
+	public Usuario getDono() {
+		return dono;
+	}
+
+	public void setDono(Usuario dono) {
+		this.dono = dono;
 	}
 
 	public int getId() {
@@ -54,11 +67,11 @@ public class Grupo {
 		this.descricao = descricao;
 	}
 
-	public ArrayList<Usuario> getMembros() {
+	public ArrayList<GrupoUsuario> getMembros() {
 		return membros;
 	}
 
-	public void setMembros(ArrayList<Usuario> membros) {
+	public void setMembros(ArrayList<GrupoUsuario> membros) {
 		this.membros = membros;
 	}
 
@@ -70,14 +83,13 @@ public class Grupo {
 		Grupo.geradorId = geradorId;
 	}
 
-	// Método toString:
 	@Override
 	public String toString() {
 		String out = "\n";
 		out += "- id: " + this.id + "\n";
 		out += "- nome: " + this.nome + "\n";
+		out += "- dono: " + this.dono + "\n";
 		out += "- descrição: " + this.descricao + "\n";
-		// out += "- membros: " + this.membros + "\n";
 		return out;
 	}
 }

@@ -1,29 +1,23 @@
 import java.util.ArrayList;
 
-// Questão 2) public final class GrupoPublico extends Grupo {
 public class GrupoPublico extends Grupo {
 	private ArrayList<CaronaPublica> caronas;
 
-	/*
-	 * Questão 3)
-	 * private static int testStatic = 2;
-	 * private int testStatic = 2;
-	 *
-	 * public int getTestStatic() {
-	 *	return testStatic;
-	 * }
-	 */
-	
-	public GrupoPublico(String nome, String descricao) {
-		super(nome, descricao);
+	public GrupoPublico() {
+		super();
+		this.caronas = new ArrayList<CaronaPublica>();
 	}
 
-	/*
-	public void adicionarMembro(Usuario usuario) {
-		caronas.add(usuario);
+	public GrupoPublico(Usuario dono) {
+		super(dono);
+		this.caronas = new ArrayList<CaronaPublica>();
 	}
-	*/
-	
+
+	public GrupoPublico(String nome, String descricao, Usuario dono) {
+		super(nome, descricao, dono);
+		this.caronas = new ArrayList<CaronaPublica>();
+	}
+
 	public ArrayList<CaronaPublica> getCaronas() {
 		return caronas;
 	}
@@ -32,15 +26,25 @@ public class GrupoPublico extends Grupo {
 		this.caronas = caronas;
 	}
 
-	// Método toString:
+	@Override
+	public void adicionarMembro(Usuario usuario) {
+		getMembros().add(new GrupoUsuario(this, usuario));
+	}
+
 	@Override
 	public String toString() {
 		String out = "\n";
 		out += "- id: " + getId() + "\n";
 		out += "- nome: " + getNome() + "\n";
 		out += "- descrição: " + getDescricao() + "\n";
-		// out += "- membros: " + getMembros() + "\n";
-		// out += "- caronas: " + this.caronas + "\n";
+
 		return out;
+	}
+	
+	
+	// 2)
+	
+	public void testeDinamico() {
+		System.out.println("Teste Dinâmico");
 	}
 }

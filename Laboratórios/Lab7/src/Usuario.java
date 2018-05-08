@@ -6,11 +6,11 @@ public class Usuario {
 	private String email;
 	private String senha;
 	private boolean status;
-	private ArrayList<Grupo> grupos;
+	private ArrayList<GrupoUsuario> grupos;
 	private Perfil perfil;
+
 	private static int geradorId;
 	
-	// Método Construtor:
 	public Usuario(String nome, String email, String senha, boolean status,
 			Perfil perfil) {
 		this.id = geradorId;
@@ -18,16 +18,45 @@ public class Usuario {
 		this.email = email;
 		this.senha = senha;
 		this.status = status;
-		this.grupos = new ArrayList<Grupo>();
+		this.grupos = new ArrayList<GrupoUsuario>();
 		Usuario.geradorId++;
 		this.setPerfil(perfil);
 	}
 	
-	public void adicionarGrupo(Grupo grupo) {
-		grupos.add(grupo);
+	public void atualizarGrupo(Usuario dono, int idGrupo, String nome, String descricao) {
+		if (dono.equals(this)) {
+			grupos.get(idGrupo).getGrupo().setNome(nome);
+			grupos.get(idGrupo).getGrupo().setDescricao(descricao);
+		}
 	}
 	
-	// Métodos getters and setters:
+	public void atualizarGrupo(Usuario dono, int idGrupo, String descricao) {
+		if (dono.equals(this)) {
+			grupos.get(idGrupo).getGrupo().setDescricao(descricao);
+		}
+	}
+
+	public boolean removerGrupo(int id) {
+		for (int i = 0; i < grupos.size(); i++)
+			if (grupos.get(i).getGrupo().getId() == id)
+				return grupos.remove(grupos.get(i));
+		
+		return false;
+	}
+
+	public boolean removerGrupo(Grupo grupo) {
+		for (int i = 0; i < grupos.size(); i++)
+			if (grupos.get(i).getGrupo().equals(grupo))
+				return grupos.remove(grupos.get(i));
+		
+		return false;
+	}
+
+	public void adicionarGrupo(Grupo grupo) {
+		grupos.add(new GrupoUsuario(grupo, this));
+	
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -84,15 +113,14 @@ public class Usuario {
 		Usuario.geradorId = geradorId;
 	}
 
-	public ArrayList<Grupo> getGrupos() {
+	public ArrayList<GrupoUsuario> getGrupos() {
 		return grupos;
 	}
 
-	public void setGrupos(ArrayList<Grupo> grupos) {
+	public void setGrupos(ArrayList<GrupoUsuario> grupos) {
 		this.grupos = grupos;
 	}
 
-	// Método toString:
 	@Override
 	public String toString() {
 		String out = "\n";
@@ -102,7 +130,6 @@ public class Usuario {
 		out += "- senha: " + this.senha + "\n";
 		out += "- status: " + this.status + "\n";
 		out += "- grupos: " + this.grupos + "\n";
-		// out += "- perfil: " + this.perfil + "\n";
 		return out;
 	}
 }

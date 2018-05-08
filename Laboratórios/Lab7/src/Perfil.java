@@ -9,11 +9,7 @@ public class Perfil {
 	private Caroneiro caroneiro;
 	private Caronante caronante;
 	private Usuario usuario;
-	// Perguntar para professora se não vamos usar essa variável: private int tempoHabilitacao;
-	
-	
-	
-	// Método Construtor:
+
 	public Perfil(char sexo, String dataNascimento, String cidade, String estado,
 			String telefone, boolean fumante, float avaliacao,
 			Caroneiro caroneiro, Caronante caronante) {
@@ -26,7 +22,6 @@ public class Perfil {
 		this.avaliacao = avaliacao;
 		this.caronante = caronante;
 		this.caroneiro = caroneiro;
-		// L12: this.tempoHabilitacao = tempoHabilitacao;
 	}
 	
 	public Perfil(char sexo, String dataNascimento, String cidade, String estado, String telefone, boolean fumante,
@@ -42,8 +37,6 @@ public class Perfil {
 		this.caronante = caronante;
 		this.usuario = usuario;
 	}
-
-
 
 	public char getSexo() {
 		return sexo;
@@ -121,7 +114,6 @@ public class Perfil {
 		this.usuario = usuario;
 	}
 
-	// Método toString:
 	@Override
 	public String toString() {
 		String out = "\n";

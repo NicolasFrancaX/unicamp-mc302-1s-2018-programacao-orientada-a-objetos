@@ -9,13 +9,10 @@ public class Caronante {
 	private String modeloVeiculo;
 	private ArrayList<CaronaCaronante> caronas;
 	private Perfil perfil;
-	// private int assentosDisponiveis;
-	// private static int numCaroneiros;
 	
 	public Caronante(int tempoHabilitacao, String generoMusicalFavorito,
 			String placaVeiculo, String carteiraMotorista, String marcaVeiculo,
 			String modeloVeiculo, Perfil perfil) {
-		// Caronante.numCaroneiros++;
 		this.tempoHabilitacao = tempoHabilitacao;
 		this.generoMusicalFavorito = generoMusicalFavorito;
 		this.placaVeiculo = placaVeiculo;
@@ -28,7 +25,6 @@ public class Caronante {
 	public Caronante(int tempoHabilitacao, String generoMusicalFavorito,
 			String placaVeiculo, String carteiraMotorista, String marcaVeiculo,
 			String modeloVeiculo) {
-		// Caronante.numCaroneiros++;
 		this.tempoHabilitacao = tempoHabilitacao;
 		this.generoMusicalFavorito = generoMusicalFavorito;
 		this.placaVeiculo = placaVeiculo;
@@ -110,15 +106,16 @@ public class Caronante {
 		this.caronas = caronas;
 	}
 
+	// Pra resolver isso, eu coloquei uma CaronaPublica como default.
+	// mas devo tomar cuidado. Pode não ser a forma correta de resolver.
 	Carona oferecerCarona() {
 		CaronaCaronante cc = new CaronaCaronante(this);
-		Carona carona = new Carona(cc);
+		Carona carona = new CaronaPublica(cc);
 		cc.setCarona(carona);
 
 		return carona;
 	}
 
-	// Método toString:
 	@Override
 	public String toString() {
 		String out = "\n";
@@ -127,25 +124,6 @@ public class Caronante {
 		out += "- placa do veículo: " + this.placaVeiculo + "\n";
 		out += "- carteira de motorista: " + this.carteiraMotorista + "\n";
 		out += "- marca do veículo: " + this.marcaVeiculo + "\n";
-		// Problema recursivo: out += "- caronas: " + this.caronas + "\n";
-		// Problema recursivo: out += "- perfil: " + this.perfil + "\n";
 		return out;
 	}
-
-	/*
-	public int getAssentosDisponiveis() {
-		return assentosDisponiveis;
-	}
-	public void setAssentosDisponiveis(int assentosDisponiveis) {
-		this.assentosDisponiveis = assentosDisponiveis;
-	}
-	public static int getNumCaroneiros() {
-		return numCaroneiros;
-	}
-	public static void setNumCaroneiros(int numCaroneiros) {
-		Caronante.numCaroneiros = numCaroneiros;
-	}
-	*/
-
-
 }

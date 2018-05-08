@@ -2,39 +2,47 @@
  * 
  * Questões:
  * 
- * 1) R: 
+ * 1) R: Apenas se o espaço de memória fosse para Grupo. Dessa forma, retornariamos um GrupoPrivado que
+ * tivesse a copia de todos os dados do GrupoPublico anterior. Depois só retornariamos esse resultado.
  * 
- * Vantagens:
- * - Evita termos um Stackoverflow por chamadas recursivas sem parâmetro
- * saída.
- * - Facilita a consulta de um dado de um tipo para outro.
- * - Possibilita relacionamentos muito pra muitos.
- * 
- * Desvantagens:
- * - Criação de uma nova classe/abstração;
- * - Uso de memória;
+ * Se REALMENTE precisasse do espaço de memória como GrupoPrivado, ai só se copiassemos parâmetro por parâmetro,
+ * mas seria bem complicado.
  *   
- * 2) R:
+ * 2) R: Depende. Se fizermos downcasting, sim. Dessa forma, mesmo sendo de um tipo Grupo, vamos "forçar"
+ * que ele se torne GrupoPublico pra essa execução específica.
  * 
- * Sim. Poderiamos colocar as notas como ArrayList da classe Carona em si. 
+ * Sem isso, não é possível pois o Grupo não tem esse método. Temos que explicitar o uso.
  * 
- * A desvantagem dessa abordagem é a dificuldade para acessar de quem é a nota.
+ * 3) R: Não. Pois elas não são herdeiras entre si. Nem mesmo conseguiriamos instanciar de um tipo para o outro, a menos
+ * o GrupoPrivado seja herdeira do GrupoPublico.
  * 
- * Teriamos que aplicar uma lógica de indices, o que não é difícil, mas não
- * utiliza de fato os conceitos de OOP.
+ * Outra forma seria fazer a implementação desse método na classe Grupo.
  * 
- * 3) R:
+ * 4) R: 
  * 
- * Não é possível de forma prática (a menos que você crie uma carona
- * manualmente).
+ * Vantagem:
  * 
- * Não é possível de forma prática pois a única pessoa que de fato
- * cria a carona de uma forma real é o Caronante.
+ * - Usamos o conceito de forma mais "limpa" para a abstração geral, até porque, não tem uma CaronaPublica que também
+ * é CaronaPrivada, nem um GrupoPublico que também é GrupoPrivado;
+ * - Modularização do código;
+ * - Obrigar o desenvolvedor a implementar o método de forma específica para cada herdeiro;
+ * - Torna o conceito de Polimorfismo mais limpo;
  * 
- * E como eu não deixei possível a setagem de outro Caronante (por isso,
- * o meu CaronaCaronante é final e eu não tenho setCaronante), não
- * vai ser possível ter esse tipo de inconsistência.
+ * Desvantagem:
+ *
+ * - É pouco flexível. Ou seja, ela depende mais dos próprios herdeiros.
  * 
+ * Mas esses prós e contras dependem do padrão do projeto.
+ * 
+ * 
+ * 5) R:
+ * 
+ * É possível sobrecarregar um método em um relacionamento que não é herança, pois
+ * o que a sobrecarga faz é permitir o uso de um mesmo nome do método, mudando apenas sua
+ * assinatura. As classes tem esse poder.
+ * 
+ * Sobrescrita só faz sentido em relacionamento de herança. Pois, dessa forma, aquela classe herdeira
+ * pode ter seu próprio comportamento para um método com a mesma assinatura que sua mãe.
  */
 
 import java.util.ArrayList;
@@ -96,35 +104,93 @@ public class Main {
 		caronante03.setPerfil(perfil03);
 		caroneiro03.setPerfil(perfil03);
 		
+		// Preparacao
 		usuarios.add(usuario00);
 		usuarios.add(usuario01);
 		usuarios.add(usuario02);
 		usuarios.add(usuario03);
+		
+		// 2 Grupos
+		Grupo grupoPrivado = new GrupoPrivado("a7", "É um grupo organizado", usuario03);
+		Grupo grupoPublico = new GrupoPublico("a8", "É um grupo desorganizado.", usuario02);
 
-		Carona carona = usuario00.getPerfil().getCaronante().oferecerCarona();
+		// 2 Caronas
 		
-		// Vou fazer para jogar direto um usuário depois
-		carona.adicionarCaroneiro(usuario01.getPerfil().getCaroneiro());
-		carona.adicionarCaroneiro(usuario02.getPerfil().getCaroneiro());
-		carona.adicionarCaroneiro(usuario03.getPerfil().getCaroneiro());
+		Carona caronaPublica = new CaronaPublica(new CaronaCaronante(caronante01));
+		Carona caronaPrivada = new CaronaPrivada(new CaronaCaronante(caronante00));
 		
-		System.out.println(carona.atribuirNotaCaroneiro(usuario01.getId(), 10));
-		System.out.println(carona.atribuirNotaCaroneiro(usuario02.getId(), 0));
-		System.out.println(carona.atribuirNotaCaroneiro(usuario03.getId(), 5));
-		System.out.println(carona.atribuirNotaCaronante(10));
+		// Associe as caronas com os grupos
 		
-		System.out.println(carona.atribuirNotaCaroneiro(50, 10));
+		((CaronaPrivada)caronaPrivada).adicionarGrupo((GrupoPrivado)grupoPrivado);
+		((CaronaPublica)caronaPublica).adicionarGrupo((GrupoPublico)grupoPublico);
 		
-		System.out.println("Avaliação Caroneiro 0: " + carona.getCaroneiros().get(0).getAvaliacao()); // 10
-		System.out.println("Avaliação Caroneiro 1: " + carona.getCaroneiros().get(1).getAvaliacao()); // 0
-		System.out.println("Avaliação Caroneiro 2: " + carona.getCaroneiros().get(2).getAvaliacao()); // 5
-		System.out.println("Avaliação Caronante: " + carona.getCaronante().getAvaliacao()); // 10
-
-		// Imprimindo informações de todos os usuários:
-		usuarios.forEach((u)->System.out.println(u));
+		// Adicionar 2 usuários / grupo
 		
-		// Imprimindo informações da carona:
-		System.out.println(carona);
-
+		grupoPrivado.adicionarMembro(usuario03);
+		grupoPrivado.adicionarMembro(usuario02);
+		grupoPublico.adicionarMembro(usuario01);
+		grupoPublico.adicionarMembro(usuario02);
+		
+		// 1 usuário ofereça carona
+		
+		Carona carona1 = usuario00.getPerfil().getCaronante().oferecerCarona();
+		
+		// 1 usuário solicita carona
+		usuario02.getPerfil().getCaroneiro().pedirCarona(carona1);
+		
+		// Gerar avaliação para a carona1
+		carona1.atribuirNotaCaronante(5);
+		int idCaroneiro1 = carona1.getCaroneiros().get(0).
+				getCaroneiro().getPerfil().getUsuario().getId();
+		carona1.atribuirNotaCaroneiro(idCaroneiro1, 5);
+		System.out.println("\n\nAvaliação da Carona1: ");
+		System.out.println(carona1);
+		
+		
+		// Gerar avaliação para a caronaPublica
+		caronaPublica.atribuirNotaCaronante(5);
+		int idCaroneiroPublica = caronaPublica.getCaroneiros().get(0).
+				getCaroneiro().getPerfil().getUsuario().getId();
+		caronaPublica.atribuirNotaCaroneiro(idCaroneiroPublica, 5);
+		System.out.println("Avaliação da CaronaPublica: ");
+		System.out.println(caronaPublica);
+		
+		// Gerar avaliação para a caronaPrivada
+		caronaPrivada.atribuirNotaCaronante(5);
+		int idCaroneiroPrivada = caronaPrivada.getCaroneiros().get(0).
+				getCaroneiro().getPerfil().getUsuario().getId();
+		caronaPrivada.atribuirNotaCaroneiro(idCaroneiroPrivada, 5);
+		System.out.println("Avaliação da Carona1: ");
+		System.out.println(caronaPrivada);
+		
+		// Liste todos os usuários de cada grupo
+		System.out.println("Listando todos os Usuários de cada Grupo:");
+		listeTodosUsuarios(grupoPrivado);
+		listeTodosUsuarios(grupoPublico);
+		
+		// Liste todos os grupos de cada usuário
+		System.out.println("Listando todos os Grupos de cada Usuario");
+		for (Usuario usuario : usuarios)
+			listeTodosGrupos(usuario);
+		
+		
+		// 2)
+		
+		Grupo a = new GrupoPublico();
+		
+		// Assim não: a.testeDinamico();
+		
+		// Assim sim:
+		((GrupoPublico)a).testeDinamico();
+	}
+	
+	private static void listeTodosUsuarios(Grupo grupo) {
+		for (GrupoUsuario usuario : grupo.getMembros())
+			System.out.println(usuario.getUsuario());
+	}
+	
+	private static void listeTodosGrupos(Usuario usuario) {
+		for (GrupoUsuario grupo : usuario.getGrupos())
+			System.out.println(grupo.getGrupo());
 	}
 }

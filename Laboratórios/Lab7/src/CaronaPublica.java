@@ -5,6 +5,7 @@ public class CaronaPublica extends Carona {
 
 	public CaronaPublica(CaronaCaronante caronante) {
 		super(caronante);
+		this.grupos = new ArrayList<GrupoPublico>();
 	}
 
 	public CaronaPublica(CaronaCaronante caronante, double latitudeEncontro, double longitudeEncontro, double latitudeDestino,
@@ -25,8 +26,23 @@ public class CaronaPublica extends Carona {
 				valor);
 	}
 
+
 	public boolean adicionarCaroneiro(Caroneiro caroneiro) {
-		return super.adicionarCaroneiro(caroneiro);
+		if (getAssentosDisponiveis() > 0) {
+			System.out.println(caroneiro + " - Assento reservado com sucesso.");
+			setAssentosDisponiveis(getAssentosDisponiveis() + 1);
+		} else 
+			System.out.println(caroneiro + " - Assento não reservado.");
+
+		return getCaroneiros().add(new CaronaCaroneiro(caroneiro, this));
+	}
+	
+	public boolean removerCaroneiro(Caroneiro caroneiro) {
+		for (CaronaCaroneiro cc : getCaroneiros()) 
+			if (cc.getCaroneiro() == caroneiro)
+				return getCaroneiros().remove(cc);
+		
+		return false;
 	}
 	
 	public boolean adicionarGrupo(GrupoPublico grupo) {
