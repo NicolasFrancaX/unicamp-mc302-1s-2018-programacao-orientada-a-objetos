@@ -6,4 +6,3 @@ INDEX VERSION 1.130+/home/nicolas/Drive/Unicamp/Engenharia de computação/3º S
 4061308272.index
 2188923391.index
 460390469.index
-1655552225.index

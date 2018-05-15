@@ -10,6 +10,54 @@
       <link>http://www.eclipse.org</link>
     </image>
     <item>
+      <title><![CDATA[EclipseCon Europe 2018 Call for Papers]]></title>
+      <link><![CDATA[http://www.eclipsecon.org/europe2018]]></link>
+      <description><![CDATA[Review the CFP, talk with your team and submit your talks today!]]></description>
+      <pubDate>Mon, 14 May 2018 13:00:00 EST</pubDate>
+      <category>news</category>
+      <pressrelease>0</pressrelease>
+    </item>
+    <item>
+      <title><![CDATA[New Proposed Charter for OS.bea Working Group]]></title>
+      <link><![CDATA[https://eclipse.org/org/workinggroups/osbea_wg_charter.php]]></link>
+      <description><![CDATA[New proposed charter for OS.bea Working Group is ready for review. Paticipate by adding feedback on the mailing-list.]]></description>
+      <pubDate>Mon, 14 May 2018 13:00:00 EST</pubDate>
+      <category>news</category>
+      <pressrelease>0</pressrelease>
+    </item>
+     <item>
+      <title><![CDATA[Eclipse Common Build Infrastructure: Upcoming Changes]]></title>
+      <link><![CDATA[https://www.youtube.com/watch?v=nvzqdQmw9gY&feature=youtu.be]]></link>
+      <description><![CDATA[Eclipse CBI is undergoing important changes, including Kubernetes/ Docker via Red Hat OpenShift & CloudBees Jenkins Enterprise.]]></description>
+      <pubDate>Thu, 10 May 2018 09:00:00 EST</pubDate>
+      <category>news</category>
+      <pressrelease>0</pressrelease>
+    </item>
+    <item>
+      <title><![CDATA[Eclipse Newsletter - Java Tools and Runtimes]]></title>
+      <link><![CDATA[https://www.eclipse.org/community/eclipse_newsletter/2018/april/]]></link>
+      <description><![CDATA[This month, read all about Eclipse projects: Collections, JNoSQL, MicroProfile, OpenJ9, and Vert.x]]></description>
+      <pubDate>Fri, 04 May 2018 05:00:00 EST</pubDate>
+      <category>news</category>
+      <pressrelease>0</pressrelease>
+    </item>
+    <item>
+      <title><![CDATA[EclipseCon France 2018: Register Early!]]></title>
+      <link><![CDATA[https://www.eclipsecon.org/france2018/registration]]></link>
+      <description><![CDATA[Prices go up after April 30, so register now.]]></description>
+      <pubDate>Wed, 25 Apr 2018 08:30:00 EST</pubDate>
+      <category>news</category>
+      <pressrelease>0</pressrelease>
+    </item>
+     <item>
+      <title><![CDATA[Survey of 1800+ developers now released on new Jakarta EE website]]></title>
+      <link><![CDATA[https://jakarta.ee/news/2018/04/24/jakarta-ee-community-survey/]]></link>
+      <description><![CDATA[Survey of 1,800+ Java developers reveals "cloud native" top requirement in platform's evolution.]]></description>
+      <pubDate>Tue, 24 Apr 2018 09:00:00 EST</pubDate>
+      <category>news</category>
+      <pressrelease>0</pressrelease>
+    </item>
+    <item>
       <title><![CDATA[IoT Developer Survey 2018 | Results are in!]]></title>
       <link><![CDATA[https://blog.benjamin-cabe.com/2018/04/17/key-trends-iot-developer-survey-2018]]></link>
       <description><![CDATA[Results from the IoT Developer Survey are in! Read about the key findings about IoT cloud platforms, databases, security, and more.]]></description>
